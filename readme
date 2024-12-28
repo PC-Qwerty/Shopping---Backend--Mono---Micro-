@@ -1,0 +1,5 @@
+npx npm-check-updates -u && npm install
+
+need to dockerize the application to run in production since in development we use localhost amqpb and it needs to be on local system but in production the image files such as mongodb (noaql) depends on the native image files it is used with docker...
+
+here to execute the docker yml file "docker-compose build && docker-compose up" is used at root level i.e shopping_micro..
