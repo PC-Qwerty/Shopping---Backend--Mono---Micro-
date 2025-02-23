@@ -7,7 +7,7 @@ const { PublishMessage } = require('../utils')
 module.exports = (app,channel) => {
     
     const service = new ShoppingService();
-(channel, service);
+    SubscribeMessage(channel, service);
 
     app.post('/order',UserAuth, async (req,res,next) => {
 
@@ -20,7 +20,7 @@ module.exports = (app,channel) => {
 
         // PublishCustomerEvent(payload)
 
-        // PublishMessage(channel, CUSTOMER_BINDING_KEY, JSON.stringify(payload))
+        PublishMessage(channel, CUSTOMER_BINDING_KEY, JSON.stringify(payload))
 
         res.status(200).json(data);
 
