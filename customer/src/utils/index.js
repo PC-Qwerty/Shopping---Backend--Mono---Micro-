@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const amqplib = require('amqplib');
 
@@ -76,13 +76,13 @@ module.exports.CreateChannel = async () => {
 }
 
 
-// module.exports.PublishMessage = async (channel, binding_key, msg) => {
-//   try {
-//     await channel.publish(EXCHANGE_NAME, binding_key, Buffer.from(msg));
-//   } catch (err) {
-//     throw err;
-//   }
-// }
+module.exports.PublishMessage = async (channel, binding_key, msg) => {
+  try {
+    await channel.publish(EXCHANGE_NAME, binding_key, Buffer.from(msg));
+  } catch (err) {
+    throw err;
+  }
+}
 
 
 module.exports.SubscribeMessage = async (channel, service) => {
